@@ -1,161 +1,146 @@
-@font-face {
-    font-family: 'tictactoe';
-    src: url('Cute\ Notes.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 *{
     padding: 0;
     margin: 0;
+    font-size: 20px;
     box-sizing: border-box;
+    transition: .3s;
 }
 
 :root{
-    --header-color: #0478B3;
-    --bg-color: #24B6FF;
-    --font-color: #f1f5f9;
-    --tic-bg-color: #B36300;
-    --player-x-color:#FF920A;
-    --player-o-color: #09AEFF;
+    --bg-color: #f3f3f3;
+    --font-color: #131333;
+    --line-color: #323273;
+    --dark-line-color: #831232;
 }
 
-.container{
+body{
     min-height: 100vh;
+    background-color: var(--bg-color);
     color: var(--font-color);
     display: flex;
     flex-direction: column;
 }
 
 header{
-    width: 100vw;
-    min-height: 23vh;
-    background-color: var(--header-color);
-    color: var(--font-color);
-    font-family: 'tictactoe', times, serif;
+    height: 15vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 1rem;
 }
 
 h1{
-    font-size: 3rem;
+    font-size: 1.5rem;
+}
+
+#playerSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;;
+}
+
+.playerDiv{
+    display: flex;
+    gap: .8rem;
+}
+
+.player{
+    background-color: transparent;
+    color: var(--font-color);
+    border: none;
+}
+
+.playerInputName{
+    width: 7rem;
+    background-color: transparent;
+    color: var(--font-color);
+    border: 2px solid var(--line-color);
 }
 
 main{
     flex: 1 0 auto;
-    padding: .7rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: .8rem;
+    align-items: center;
+    gap: .3rem;
 }
 
-.inputsContainer{
-    display: flex;
-    gap: 3rem;
-}
-
-.playerXLabel{
-    color: var(--player-x-color);
-}
-.playerOLabel{
-    color: var(--player-o-color);
-}
-
-h2{
-    color: transparent;
-}
-
-.squareContainer{
-    background-color: var(--tic-bg-color);
+#turnTheme{
+    width: 100%;
     display: grid;
-    grid-template-columns: 6rem 6rem 6rem;
-    grid-template-rows: 6rem 6rem 6rem;
-    gap: .5rem;
-    max-width: 19rem;
+    grid-template-columns: repeat(3, 5rem);
+    grid-template-rows: 1fr;
+    justify-content: space-evenly;
+
 }
-.squareContainer .square{
-    background-color: white;
+
+#turn{
+    background-color: var(--bg-color);
+    color: var(--font-color);
     border: none;
-    place-content: center;
-    font-size: 5rem;
+    
 }
 
-#startPlay{
-    background-color: transparent;
-    border: 2px solid transparent;
-    font-size: 1.3rem;
-    transition: .3s;
-}
-#startPlay:hover{
-    border-bottom: 2px solid black;
+#restart{
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    border: none;
 }
 
-.win{
-    background-color: #25a340 !important;
+#theme{
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    border: 2px solid var(--line-color);
+    border-radius: .5rem;
+    padding: .1rem;
+    transition: .5s;
+}
+
+#theme:hover{
+    background-color: var(--font-color);
+    color: var(--bg-color);
+    border: 2px solid var(--dark-line-color);
+}
+
+#squaresContent{
+    background-color: var(--line-color);
+    display: grid;
+    grid-template-columns: repeat(3, 7rem);
+    grid-template-rows: repeat(3, 7rem);
+    gap: .3rem;
+}
+
+.square{
+    background-color: var(--bg-color);
+    color: var(--line-color);
+    font-size: 6rem;
+    border: none;
+}
+
+.winnerSquare{
+    background-color: var(--line-color) !important;
+    color: var(--bg-color) !important;
 }
 
 footer{
-    background-color: var(--header-color);
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: .5rem;
-}
-
-.footerLink{
-    color: var(--font-color);
-    text-decoration: none;
-    border: 2px solid transparent;
-    transition: .5s;
-}
-.footerLink:hover{
-    color: #c1c1c1;
-    border-bottom: 2px solid #c1c1c1;
-}
-
-.iconsContent{
     display: flex;
-    gap: .8rem;
-}
-    
-.footerImg{
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid transparent;
-    border-radius: .7rem;
-    transition: .3s;
-}
-
-.footerImg:hover{
-    border: 2px solid var(--font-color);
-}
-
-.cursor-pointer{
-    cursor: pointer;
+    justify-content: center;
 }
 
 @media (max-width: 1024px) {
     *{
-        font-size: 15px;
+        font-size: 17px;
     }
 }
-@media (max-width: 760px) {
-    .inputsContainer{
-        flex-direction: column;
-        gap: .8rem;
-    }
-}
+
 @media (max-width: 425px) {
-    *{
-        font-size: 14px;
+    #squaresContent{
+        grid-template-columns: repeat(3, 6rem);
+        grid-template-rows: repeat(3, 6rem);
     }
-    h1{
-        font-size: 2rem;
+    .square{
+        font-size: 5rem;
     }
 }

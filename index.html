@@ -5,50 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="tac.css">
-    <script src="toe.js" defer></script>
-    <title>Jogo da Velha</title>
+    <script src="toe.js" defer type="module"></script>
+    <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Jogo da velha</h1>
-            <p>Tic Tac Toe</p>
-        </header>
-        <main>
-            <div class="inputsContainer">
-                <div>
-                    <label for="playerXName" class="playerXLabel">Jogador(x):</label>
-                    <input type="text" id="playerXName">
-                </div>
-                <div>
-                    <label for="playerOName" class="playerOLabel">Jogador(o):</label>
-                    <input type="text" id="playerOName">
-                </div>
-                <button type="button" id="startPlay">Iniciar</button>
+    <header>
+        <h1>Tic Tac Toe</h1>
+        <section id="playerSection">
+            <div class="playerDiv">
+                <span id="playerContent1"><button type="button" class="player" data-player="1">Player 1 (X):</button></span>
+                <p id="pointsPlayer1">0</p>
             </div>
-            <h2>Vez de: <span id="turnPlayer"></span></h2>
-            <div class="squareContainer">
-                <button class="square" data-region="0.0"></button>
-                <button class="square" data-region="0.1"></button>
-                <button class="square" data-region="0.2"></button>
-                <button class="square" data-region="1.0"></button>
-                <button class="square" data-region="1.1"></button>
-                <button class="square" data-region="1.2"></button>
-                <button class="square" data-region="2.0"></button>
-                <button class="square" data-region="2.1"></button>
-                <button class="square" data-region="2.2"></button>
+            <div class="playerDiv">
+                <span id="playerContent2"><button type="button" class="player" data-player="2">Player 2 (O):</button></span>
+                <p id="pointsPlayer2">0</p>
             </div>
-        
-        </main>
-        <footer>
-            <p>Criado por <a href="https://github.com/TheusRodrigues73" target="_blank" rel="external" class="footerLink">Theuz</a></p>
-            <div class="iconsContent">
-                <a href="https://www.facebook.com/profile.php?id=100085115867653" target="_blank" rel="external"><img src="imagens/icone-facebook.png" alt="icone facebook" class="footerImg"></a>
-                <a href="https://www.instagram.com/theuz_2104/" target="_blank" rel="external"><img src="imagens/icone-instagram.jpg" alt="icone insta" class="footerImg"></a>
-                <a href="https://twitter.com/Matheus88663022" target="_blank" rel="external"><img src="imagens/icone-twitter.png" alt="icone twitter" class="footerImg"></a>
-            </div>
-        </footer>
-    </div>
+        </section>
+    </header>
+    <main>
+        <div id="turnTheme">
+            <button id="turn" data-turn="x">Turn: X</button>
+            <button id="restart">reset</button>
+            <button class="theme" id="theme" data-theme="lightTheme">Theme</button>
+        </div>
 
+        <section id="squaresContent">
+            <button class="square" data-region="0.0"></button>
+            <button class="square" data-region="0.1"></button>
+            <button class="square" data-region="0.2"></button>
+            <button class="square" data-region="1.0"></button>
+            <button class="square" data-region="1.1"></button>
+            <button class="square" data-region="1.2"></button>
+            <button class="square" data-region="2.0"></button>
+            <button class="square" data-region="2.1"></button>
+            <button class="square" data-region="2.2"></button>
+        </section>
+    </main>
+    <footer>made for Morgenstern</footer>
 </body>
 </html>
